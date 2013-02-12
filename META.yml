@@ -30,4 +30,4 @@ requires:
   bareword::filehandles: 0
   indirect: 0
   multidimensional: 0
-version: 0.01
+version: 0.03
