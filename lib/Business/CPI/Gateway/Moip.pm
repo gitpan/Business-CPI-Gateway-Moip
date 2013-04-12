@@ -9,7 +9,7 @@ use HTTP::Tiny;
 use Data::Dumper;
 extends 'Business::CPI::Gateway::Base';
 
-our $VERSION     = '0.03';
+our $VERSION     = '0.04';
 
 =pod
 

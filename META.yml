@@ -18,6 +18,7 @@ no_index:
     - t
     - inc
 requires:
+  Business::CPI: 0
   Carp: 0
   Data::Dumper: 0
   Data::Printer: 0
@@ -30,4 +31,4 @@ requires:
   bareword::filehandles: 0
   indirect: 0
   multidimensional: 0
-version: 0.03
+version: 0.04

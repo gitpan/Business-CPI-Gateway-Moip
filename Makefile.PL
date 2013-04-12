@@ -11,7 +11,7 @@ WriteMakefile(
     PREREQ_PM    => {
         'Test::Simple'          => 0.44,
         'Data::Printer'         => 0,
-        'Business:CPI'          => 0,
+        'Business::CPI'         => 0,
         'HTTP::Tiny'            => 0,
         'Moo'                   => 0,
         'MIME::Base64'          => 0,
