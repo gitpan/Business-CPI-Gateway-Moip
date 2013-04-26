@@ -9,7 +9,7 @@ use HTTP::Tiny;
 use Data::Dumper;
 extends 'Business::CPI::Gateway::Base';
 
-our $VERSION     = '0.04';
+our $VERSION     = '0.05';
 
 =pod
 
@@ -31,8 +31,8 @@ Business::CPI::Gateway::Moip - Inteface para pagamentos Moip
         sandbox         => 1,
         token_acesso    => 'YC110LQX7UQXEMQPLYOPZ1LV9EWA8VKD',
         chave_acesso    => 'K03JZXJLOKJNX0CNL0NPGGTHTMGBFFSKNX6IUUWV',
-        receiver_email  => 'teste@casajoka.com.br',
-        receiver_label  => 'Casa Joka',
+        receiver_email  => 'teste@oemail.com.br',
+        receiver_label  => 'Nome Cliente ou Loja',
         id_proprio      => 'ID_INTERNO_'.int rand(int rand(99999999)),
 
     );
@@ -41,9 +41,9 @@ Business::CPI::Gateway::Moip - Inteface para pagamentos Moip
         buyer => {
             name               => 'Mr. Buyer',
             email              => 'sender@andrewalker.net',
-            address_street     => 'Rua Itagyba Santiago',
+            address_street     => 'Rua das Flores',
             address_number     => '360',
-            address_district   => 'Vila Mascote',
+            address_district   => 'Vila Mariana',
             address_complement => 'Ap 35',
             address_city       => 'São Paulo',
             address_state      => 'SP',
@@ -168,8 +168,8 @@ The following example will use Business::CPI directly
         sandbox         => 1,
         token_acesso    => 'YC110LQX7UQXEMQPLYOPZ1LV9EWA8VKD',
         chave_acesso    => 'K03JZXJLOKJNX0CNL0NPGGTHTMGBFFSKNX6IUUWV',
-        receiver_email  => 'teste@casajoka.com.br',
-        receiver_label  => 'Casa Joka',
+        receiver_email  => 'teste@oemail.com.br',
+        receiver_label  => 'Nome Cliente ou Loja',
         id_proprio      => 'ID_INTERNO_'.int rand(int rand(99999999)),
     );
 
@@ -177,9 +177,9 @@ The following example will use Business::CPI directly
         buyer => {
             name               => 'Mr. Buyer',
             email              => 'sender@andrewalker.net',
-            address_street     => 'Rua Itagyba Santiago',
+            address_street     => 'Rua das Flores',
             address_number     => '360',
-            address_district   => 'Vila Mascote',
+            address_district   => 'Vila Mariana',
             address_complement => 'Ap 35',
             address_city       => 'São Paulo',
             address_state      => 'SP',
@@ -389,6 +389,7 @@ has ua => (
 );
 
 =head1 METHODS
+
 =cut
 
 sub BUILD {
@@ -733,6 +734,7 @@ sub add_pagador {
                 $xml .= "\n<Estado>".$cart->buyer->address_state."</Estado>";
             }
             if ( defined $cart->buyer->address_country ) {
+warn $cart->buyer->address_country;
                 my $sigla = uc(
                     Locale::Country::country_code2code(
                         $cart->buyer->address_country, 'alpha-2', 'alpha-3'

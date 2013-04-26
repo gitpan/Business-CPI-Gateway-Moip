@@ -24,5 +24,6 @@ WriteMakefile(
         'bareword::filehandles' => 0,
         'Email::Valid'          => 0,
         'IO::Socket::SSL'       => 0,
+        'Locale::Codes'         => 3.25,
     },
 );
